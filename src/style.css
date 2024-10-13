@@ -1,0 +1,105 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+#app {
+  margin-top: 16px;
+  width: 80%;
+  max-width: 560px;
+}
+
+.add-todo-container {
+  background-color: #e4e4e3;
+  padding: 8px 16px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.add-todo-input {
+  border: none;
+  width: 32%;
+  padding: 5px 10px;
+  margin-right: 8px;
+}
+
+/* 共通スタイル ここから */
+.btn {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  color: white;
+  font-weight: bold;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+/* 共通スタイル ここまで */
+
+.todo-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.todo-container h2 {
+  text-align: center;
+}
+
+.task-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.task-text {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.task-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-complete {
+  background-color: #4caf50;
+}
+
+.btn-delete {
+  background-color: #f44336;
+}
+
+.btn-rollback {
+  background-color: #ffa000;
+}
+
+.btn-add {
+  background-color: #2196f3;
+}
