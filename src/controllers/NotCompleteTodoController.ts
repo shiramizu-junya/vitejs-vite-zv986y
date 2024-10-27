@@ -1,5 +1,6 @@
 import { notCompleteTodoComponent } from "../component/NotCompleteTodoComponent";
 import { notCompleteTodoItemComponent } from "../component/NotCompleteTodoItem";
+import { CompleteTodoController } from "./CompleteTodoController";
 
 export class NotCompleteTodoController {
     initialize(rootElement: HTMLElement) {
@@ -17,6 +18,7 @@ export class NotCompleteTodoController {
         }
         notCompleteTodoList.insertAdjacentHTML('beforeend', notCompleteTodoElm);
         this.setRemoveTodoButtonClickEvent();
+        this.setCompleteTodoButtonClickEvent();
     }
 
     /** @description 削除ボタン処理 */
@@ -29,5 +31,18 @@ export class NotCompleteTodoController {
                 deleteTodoElm?.remove();
             }
         });
+    }
+
+    /** @description 完了ボタン処理 */
+    private setCompleteTodoButtonClickEvent() {
+        const completeBtn = document.getElementById('js-not-complete-todo-list')?.lastElementChild?.querySelector('#js-complete-todo-btn');
+        completeBtn?.addEventListener('click', (event) => {
+            const eventTargetElm = event.target;
+            if(eventTargetElm instanceof HTMLElement) {
+                const todo = eventTargetElm.parentElement?.previousElementSibling?.textContent || '';
+                new CompleteTodoController().addTodo(todo);
+                eventTargetElm.parentElement?.parentElement?.remove();
+            }
+        })
     }
 }
