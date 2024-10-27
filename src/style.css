@@ -103,3 +103,7 @@ body {
 .btn-add {
   background-color: #2196f3;
 }
+
+.not-complete-todo-container, .complete-todo-container {
+  min-height: 300px;
+}

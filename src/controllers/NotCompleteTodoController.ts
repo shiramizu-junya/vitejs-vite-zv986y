@@ -16,5 +16,18 @@ export class NotCompleteTodoController {
             return;
         }
         notCompleteTodoList.insertAdjacentHTML('beforeend', notCompleteTodoElm);
+        this.setRemoveTodoButtonClickEvent();
+    }
+
+    /** @description 削除ボタン処理 */
+    private setRemoveTodoButtonClickEvent() {
+        const deleteBtn = document.getElementById('js-not-complete-todo-list')?.lastElementChild?.querySelector('#js-delete-todo-btn');
+        deleteBtn?.addEventListener('click', (event) => {
+            const eventTargetElm = event.target;
+            if(eventTargetElm instanceof HTMLElement) {
+                const deleteTodoElm = eventTargetElm.parentElement?.parentElement;
+                deleteTodoElm?.remove();
+            }
+        });
     }
 }
