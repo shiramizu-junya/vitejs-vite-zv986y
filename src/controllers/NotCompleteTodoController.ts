@@ -3,11 +3,13 @@ import { notCompleteTodoItemComponent } from "../component/NotCompleteTodoItem";
 import { CompleteTodoController } from "./CompleteTodoController";
 
 export class NotCompleteTodoController {
+    /** @description 未完了のTODOコンポーネントの表示 */
     initialize(rootElement: HTMLElement) {
         const notCompleteTodoElm = notCompleteTodoComponent();
         rootElement.insertAdjacentHTML('beforeend', notCompleteTodoElm);
     }
 
+    /** @description 未完了TODOを追加する */
     addTodo(todo: string) {
         const notCompleteTodoElm = notCompleteTodoItemComponent(todo);
         const notCompleteTodoList = document.getElementById('js-not-complete-todo-list');

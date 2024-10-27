@@ -1,13 +1,16 @@
 import { addTodoComponent } from "../component/AddTodoComponent";
+import { InputValidator } from "../validators/inputValidator";
 import { NotCompleteTodoController } from "./NotCompleteTodoController";
 
 export class AddTodoController {
+    /** @description TODO追加フォームコンポーネントの表示 */
     initialize(rootElement: HTMLElement) {
         const addTodoElm = addTodoComponent();
         rootElement.insertAdjacentHTML('beforeend', addTodoElm);
         this.setAddTodoButtonClickEvent();
     }
 
+    /** @description TODO追加ボタン処理 */
     private setAddTodoButtonClickEvent() {
         const addTodoButton = document.getElementById('js-add-todo-btn');
         addTodoButton?.addEventListener('click', () => {
@@ -20,19 +23,13 @@ export class AddTodoController {
 
             const inputTodo = inputElm.value;
             try {
-                this.validation(inputTodo);
+                new InputValidator().validateTodo(inputTodo);
                 new NotCompleteTodoController().addTodo(inputTodo);
                 inputElm.value = '';
             } catch(e: any) {
                 console.error(e);
-                alert(e.message ?? '予期しないエラーが発せしました');
+                alert(e.message);
             }
         })
-    }
-
-    private validation(todo: string) {
-        if(!todo) {
-            throw new Error('todoを入力してください');
-        }
     }
 }

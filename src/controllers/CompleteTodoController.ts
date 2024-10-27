@@ -3,6 +3,7 @@ import { completeTodoItemComponent } from "../component/CompleteTodoItemComponen
 import { NotCompleteTodoController } from "./NotCompleteTodoController";
 
 export class CompleteTodoController {
+    /** @description　完了TODOコンポーネントの表示 */
     initialize(rootElement: HTMLElement) {
         const completeTodoElm = completeTodoComponent();
         rootElement.insertAdjacentHTML('beforeend', completeTodoElm);
